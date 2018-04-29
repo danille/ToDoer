@@ -16,7 +16,6 @@ class TodoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("TodoItems.plist"))
         
         loadTodoItems()
     }
@@ -51,7 +50,6 @@ class TodoListTableViewController: UITableViewController {
 
         saveTodoItems()
 
-        tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
@@ -74,7 +72,6 @@ class TodoListTableViewController: UITableViewController {
             
             self.saveTodoItems()
             
-            self.tableView.reloadData()
         })
         
         alert.addTextField { (alertTextField) in
