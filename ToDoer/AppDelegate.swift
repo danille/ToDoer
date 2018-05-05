@@ -19,24 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
-        
-        let config = Realm.Configuration(
-            
-            schemaVersion: 1,
-            
-            migrationBlock: { migration, oldSchemaVersion in
-                // We haven’t migrated anything yet, so oldSchemaVersion == 0
-                if (oldSchemaVersion < 1) {
-                    migration.enumerateObjects(ofType: TodoItem.className()) { (oldTodoItem, newTodoItem) in
-                        newTodoItem?["dateCreated"] = Date()
-                    }
-                }
-        })
-        
-        Realm.Configuration.defaultConfiguration = config
-    
-        
         
         return true
     }
