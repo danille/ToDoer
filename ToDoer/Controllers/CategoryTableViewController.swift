@@ -66,6 +66,7 @@ class CategoryTableViewController: SwipeTableViewController {
             let newCategory = Category()
             newCategory.name = textField.text!
             newCategory.color = RandomFlatColor().hexValue()
+            self.updateNavBar(withHexCode: newCategory.color)
             
             self.save(category: newCategory)
         }
